@@ -2,6 +2,7 @@
 #include <iomanip>
 using namespace std;
 
+//function prototype
 double getPrice(int roomType);
 double calculateDiscount(int nights, double subtotal);
 void computeAmounts(double pricePerNight, int nights, double &subtotal, double &disc1, double &afterFirstDiscount);
@@ -15,7 +16,7 @@ int main()
 
     do {
         int roomType, nights;
-        double pricePerNight = 0.0, subtotal, disc1 = 0.0, disc2 = 0.0, finalTotal;
+        double pricePerNight = 0.0, subtotal, disc1 = 0.0, disc2 = 0.0, finalTotal,afterFirstDiscount;
         char promo;
 
 
@@ -51,7 +52,6 @@ int main()
 
         pricePerNight = getPrice(roomType);
 
-        double afterFirstDiscount;
         computeAmounts(pricePerNight, nights, subtotal, disc1, afterFirstDiscount);
 
         cout << "\n\nDo you have a promo code? (Y/N): ";
@@ -69,17 +69,15 @@ int main()
 
     } while (booking == 'Y' || booking == 'y');
 
-    return 0;
-}
 
-//function definition
-double getPrice(int roomType)
+//function definition (user defined function)
+double getPrice(int roomType) //function header
 {
     switch (roomType) {
     case 1:
         return 150;
     case 2:
-        return 200;
+        return 200;                //function body
     case 3:
         return 300;
     }
@@ -139,4 +137,5 @@ void displayMessage(double finalTotal)
         cout << "Thank you for booking with FTMK Grand Hotel.\n";
     }
 }
+
        
